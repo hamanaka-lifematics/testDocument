@@ -1,0 +1,130 @@
+MegaRAID Storage Manager +
+導入/設定手順
+
+2016年3月
+
+== はじめに
+
+本書は、MegaRAIDシリーズ RAIDカードを搭載したWindows Server 2012
+サーバ上にMegaRAID Storage
+Managerを導入し、アラートメール発報設定を実施する手順を記したものである。
+
+MegaRAID Storage
+Managerのバージョンは、2016年3月時点でIBMサポートサイトから入手可能な最新版である15.03.01.00を導入する。
+
+== 目次
+
+link:#はじめに[[.underline]#1.# [.underline]#はじめに# 2]
+
+link:#megaraid-storage-manager導入[[.underline]#2.#
+[.underline]#MegaRAID Storage Manager導入# 3]
+
+link:#megaraid-storage-manager日本語化[[.underline]#3.#
+[.underline]#MegaRAID Storage Manager日本語化# 10]
+
+link:#メールアラート発報設定[[.underline]#4.#
+[.underline]#メールアラート発報設定# 12]
+
+[arabic, start=2]
+. {blank}
++
+== 
+. {blank}
++
+== MegaRAID Storage Manager導入
+
+. IBMサポートサイト(IBM Fix Central)より以下のファイルを取得する。
+
+* ibm_utl_msm_15.05.01.52_windows_32-64.exe
+* lnvgy_utl_msm_15.05.01.51a-jp_anyos_noarch.zip
+
+[start=2]
+. ダウンロードしたibm_utl_msm_15.05.01.52_windows_32-64.exeを対象サーバ上で「管理者として実行」する。 +
+image:media/image1.png[image,width=351,height=313]
+. 展開するフォルダを選択して「OK」を押下する。 +
+image:media/image2.png[image,width=519,height=326]
+. 「Exit」を押下する。 +
+image:media/image3.png[image,width=519,height=329]
+. 展開したフォルダを開き、「setup.exe」を起動「管理者として実行」する。 +
+image:media/image4.png[image,width=649,height=392]
+. 必要な Microsoft Visual
+C＋＋がインストールされていない場合、以下のメッセージが表示される。 +
+「Install」を押下しインストールする。 +
+image:media/image5.png[image,width=313,height=241]
+. Microsoft Visual C++ 再頒布可能パッケージの License Agreement
+画面でチェックを入れ、「Install」を押下しインストールする。 +
+image:media/image6.png[image,width=319,height=243]
+. Setup Successful と表示されたら、「Close」を押下する。 +
+image:media/image7.png[image,width=319,height=243]
+. 「Next」を押下する。 +
+image:media/image8.png[image,width=338,height=260]
+. License Agreement の画面で「I Accept the terms in the license
+agreement」を選択する。 +
+image:media/image9.png[image,width=338,height=257]
+. Organization 情報に適切な値を入力する。※空欄でもOK +
+image:media/image10.png[image,width=333,height=254]
+. プログラムをインストールするフォルダを指定する。 +
+image:media/image11.png[image,width=338,height=255]
+. Setup Type で「Complete」を選択して「Next」を押下する。 +
+image:media/image12.png[image,width=338,height=265]
+. 「No」を選択して「Next」 ボタンを押下する。 +
+image:media/image13.png[image,width=338,height=257]
+. 「Next」 ボタンを押下する。 +
+image:media/image14.png[image,width=338,height=257]
+. 「Install」を押下する。 +
+image:media/image15.png[image,width=333,height=256]
+. インストールが完了したら「Finish」を押下する。
+. MegaRAID Storage
+Managerを起動すると、検出されたサーバの一覧が表示される。 +
+※デフォルトはローカルのみ +
+image:media/image16.png[image,width=564,height=217]
+. IP アドレスをクリックして、OS
+のユーザーID、パスワードでログインする。 +
+image:media/image17.png[image,width=336,height=204]
+. 構成情報が表示される。 +
+image:media/image18.png[image,width=560,height=398]
+
+== 
+
+== MegaRAID Storage Manager日本語化
+
+. ダウンロードしたlnvgy_utl_msm_15.05.01.51a-jp_anyos_noarch.zipを任意の場所に展開する。
+. 展開したフォルダ内の「Windows」ー「MegaRAID Storage
+Manager」フォルダを開く。
+. 全てのフォルダ（Common、Languages）とファイルを選択し、コピーする。 +
+image:media/image19.png[image,width=541,height=326]
+. MegaRAID Storage Manager
+をインストールしたフォルダを開き、ペーストする。
+* ファイルの上書き確認が表示されるため、上書きして置き換える。
+
+____
+image:media/image20.png[image,width=560,height=341]
+____
+
+[start=5]
+. 「コンピュータの管理」-「サービス」を開き、「MSMFramework」サービスを再起動する。 +
+image:media/image21.png[image,width=423,height=311]
+. Windows からログオフし、再ログオンする。
+. MegaRAID Storage
+Managerを起動し、メニューが日本語化されたことを確認する。 +
+image:media/image22.png[image,width=576,height=381]
+. {blank}
++
+== 
+
+== メールアラート発報設定
+
+. メニューの「ツール」-「モニター構成のアラート」 を選択する。 +
+image:media/image23.png[image,width=433,height=70]
+. 「メールサーバ」タブを開き、アラート送信に利用するメールサーバ情報を入力する。 +
+image:media/image24.png[image,width=299,height=309]
+. 「E メール」タブを開き、「新規受信者の E
+メールアドレス」にメールアドレスを入力して「追加」を押下する。 +
+※デフォルトの受信者(root@localhost)は削除する。 +
+image:media/image25.png[image,width=299,height=307]
+. 「テスト」を押下し、テストメールを送信する。
+. 以下のようなテストメールが受信できることを確認する。 +
+image:media/image26.png[image,width=475,height=434]
+. 「OK」を押下し、E メール送信構成を保存する。
+
+以上
